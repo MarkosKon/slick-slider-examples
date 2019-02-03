@@ -100,8 +100,28 @@ const Prev = (
     <PrevIcon />
   </ArrowContainer>
 );
+const DotList = styled.ul`
+  margin: 0;
+  li {
+    margin: 0 10px;
+  }
+  & > li.slick-active div {
+    opacity: 1;
+  }
+`;
+const Dot = styled.div`
+  opacity: 0.5;
+  background-color: white;
+  border-bottom: 2px solid white;
+  padding-right: 2px;
+  width: 30px;
+  height: 2px;
+  &:hover {
+    opacity: 1;
+  }
+`;
 const sliderSettings = {
-  dots: false,
+  dots: true,
   arrows: true,
   infinite: true,
   speed: 750,
@@ -109,6 +129,21 @@ const sliderSettings = {
   slidesToScroll: 1,
   nextArrow: <Next />,
   prevArrow: <Prev />,
+  appendDots: dots => (
+    <div
+      style={{
+        padding: '10px',
+        bottom: '85px',
+      }}
+    >
+      <DotList>{dots}</DotList>
+    </div>
+  ),
+  customPaging: () => (
+    <Centered height="40px">
+      <Dot />
+    </Centered>
+  ),
 };
 
 const Hotel = ({ data }) => (
@@ -134,7 +169,7 @@ const Hotel = ({ data }) => (
           <BgImage
             title="slider 1"
             fluid={data.slider1.childImageSharp.fluid}
-            height="90vh"
+            height="93vh"
             overlayColor="#0000004d"
           >
             <Centered>
@@ -159,7 +194,7 @@ const Hotel = ({ data }) => (
           <BgImage
             title="slider 2"
             fluid={data.slider2.childImageSharp.fluid}
-            height="90vh"
+            height="93vh"
             overlayColor="#0000004d"
           >
             <Centered>
@@ -184,7 +219,7 @@ const Hotel = ({ data }) => (
           <BgImage
             title="slider 3"
             fluid={data.slider3.childImageSharp.fluid}
-            height="90vh"
+            height="93vh"
             overlayColor="#0000004d"
           >
             <Centered>
