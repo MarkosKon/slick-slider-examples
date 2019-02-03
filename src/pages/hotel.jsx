@@ -51,6 +51,7 @@ const DesktopList = styled(BaseDL)`
 const MobileList = styled(BaseML)`
   z-index: 2;
 `;
+// eslint-disable-next-line react/prop-types
 const Brand = ({ fixed }) => <Image title="logo" fixed={fixed} />;
 
 const ArrowContainer = styled.div`
